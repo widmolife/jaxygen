@@ -33,6 +33,7 @@ public class BasicSecurityProviderFactory implements SecurityProviderFactory {
 
  private Map<String, SecuredMethodDescriptor> alowedMethods;
  private String profiles[];
+ private Object sessionData;
 
  public BasicSecurityProviderFactory(List<SecuredMethodDescriptor> alowedMethods, String... profiles) {
   for (SecuredMethodDescriptor sm : alowedMethods) {
@@ -88,6 +89,16 @@ public class BasicSecurityProviderFactory implements SecurityProviderFactory {
    @Override
    public String[] getUserGroups() {
     return profiles;
+   }
+   
+   @Override
+   public Object getSessionData() {
+       return sessionData;
+   }
+   
+   @Override
+   public void setSessionData(Object object) {
+       sessionData = object;
    }
   };
  }

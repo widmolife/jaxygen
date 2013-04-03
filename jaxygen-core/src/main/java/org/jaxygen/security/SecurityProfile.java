@@ -24,4 +24,8 @@ public interface SecurityProfile {
      * @return 
      */
     SecuredMethodDescriptor isAllowed(final String className, final String methodName);
+    
+    Object getSessionData();
+    
+    void setSessionData(Object object);
 }
